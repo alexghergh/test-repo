@@ -1,7 +1,8 @@
 name: Build
 
 on:
-  push
+  push:
+    branches: [ 'main' ]
 
 jobs:
   build-ubuntu-macos:
@@ -40,8 +41,11 @@ jobs:
           brew update --quiet
           brew install gcc
 
-      - name: Build executable
-        run: "${{ github.workspace }}/ci/build.sh"
+      - run: |
+          echo "os: $RUNNER_OS -- compiler: $CC"
+          echo "compiler version: $CC --version"
+      # - name: Build executable
+      #   run: "${{ github.workspace }}/ci/build.sh"
 
   # build-windows:
   #   name: Build on ${{ matrix.os }} (${{ matrix.cc }} compiler)
