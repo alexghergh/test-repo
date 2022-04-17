@@ -29,13 +29,13 @@ jobs:
           version: '13'
 
       - name: Install apt packages
-        if: matrix.os == 'ubuntu-latest' and matrix.cc == 'gcc'
+        if: matrix.os == 'ubuntu-latest' && matrix.cc == 'gcc'
         run: |
           sudo apt-get update
           sudo apt-get install -y -q gcc
 
       - name: Install brew packages
-        if: matrix.os == 'macos-latest' and matrix.cc == 'gcc'
+        if: matrix.os == 'macos-latest' && matrix.cc == 'gcc'
         run: |
           brew update --quiet
           brew install gcc
