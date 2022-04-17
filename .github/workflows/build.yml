@@ -52,5 +52,24 @@ jobs:
           CC: ${{ matrix.cc }}
         run: "${{ github.workspace }}/ci/build.sh"
 
-  # build-windows:
-  #   name: Build on ${{ matrix.os }} (${{ matrix.cc }} compiler)
+  build-windows:
+    name: Build on ${{ matrix.os }} (${{ matrix.cc }} compiler)
+    strategy:
+      fail-fast: false
+      matrix:
+        os: windows-latest
+        config: [ MSVC, MINGW ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v1.12
+        with:
+          cmake-version: '3.18.x'
+
+      - name: Build
+        env:
+          CONFIG: ${{ matrix.config }}
+        run: powershell ${{ github.workspace }}\ci\build-windows.ps1
+
