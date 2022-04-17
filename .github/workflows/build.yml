@@ -41,16 +41,16 @@ jobs:
           brew update --quiet
           brew install gcc
 
-      - env:
-          CC: ${{ matrix.cc }}
-        run: |
-          echo "os: $RUNNER_OS -- compiler: $CC"
-          echo "compiler version: $($CC --version)"
-          echo "cmake version: $(cmake --version)"
-      # - name: Build executable
-      #   env:
+      # - env:
       #     CC: ${{ matrix.cc }}
-      #   run: "${{ github.workspace }}/ci/build.sh"
+      #   run: |
+      #     echo "os: $RUNNER_OS -- compiler: $CC"
+      #     echo "compiler version: $($CC --version)"
+      #     echo "cmake version: $(cmake --version)"
+      - name: Build
+        env:
+          CC: ${{ matrix.cc }}
+        run: "${{ github.workspace }}/ci/build.sh"
 
   # build-windows:
   #   name: Build on ${{ matrix.os }} (${{ matrix.cc }} compiler)
