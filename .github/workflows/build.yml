@@ -43,7 +43,7 @@ jobs:
 
       - run: |
           echo "os: $RUNNER_OS -- compiler: $CC"
-          echo "compiler version: $CC --version"
+          echo "compiler version: $($CC --version)"
       # - name: Build executable
       #   run: "${{ github.workspace }}/ci/build.sh"
 
