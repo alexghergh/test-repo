@@ -46,6 +46,7 @@ jobs:
         run: |
           echo "os: $RUNNER_OS -- compiler: $CC"
           echo "compiler version: $($CC --version)"
+          echo "cmake version: $(cmake --version)"
       # - name: Build executable
       #   env:
       #     CC: ${{ matrix.cc }}
