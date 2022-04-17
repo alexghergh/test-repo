@@ -9,8 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        - os: [ ubuntu-latest, macos-latest ]
-        - cc: [ gcc, clang ]
+        os: [ ubuntu-latest, macos-latest ]
+        cc: [ gcc, clang ]
     runs-on: ${{ matrix.os }}
     env:
       CC: ${{ matrix.cc }}
