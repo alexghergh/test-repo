@@ -66,6 +66,10 @@ jobs:
         with:
           cmake-version: '3.18.x'
 
+      - name: Setup Microsoft Visual Studio Compiler
+        if: matrix.config == 'MSVC'
+        uses: ilammy/msvc-dev-cmd@v1
+
       - name: Build
         env:
           CONFIG: ${{ matrix.config }}
