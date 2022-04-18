@@ -48,7 +48,7 @@ jobs:
       - name: Build
         env:
           CC: ${{ matrix.cc }}
-        run: echo "$(which gcc); ---- ; $(gcc --version)" && ${{ github.workspace }}/ci/build.sh
+        run: ${{ github.workspace }}/ci/build.sh
 
   build-windows:
     name: Build on ${{ matrix.os }} (${{ matrix.config }} config)
@@ -81,4 +81,4 @@ jobs:
       - name: Build
         env:
           CONFIG: ${{ matrix.config }}
-        run: powershell ${{ github.workspace }}\ci\build-windows.ps1
+        run: echo "$(gcc.exe --version)" && powershell ${{ github.workspace }}\ci\build-windows.ps1
