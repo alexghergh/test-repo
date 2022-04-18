@@ -13,8 +13,6 @@ jobs:
         os: [ ubuntu-latest, macos-latest ]
         cc: [ gcc, clang ]
     runs-on: ${{ matrix.os }}
-    env:
-      CC: ${{ matrix.cc }}
     steps:
       - uses: actions/checkout@v3
 
