@@ -48,7 +48,7 @@ jobs:
       - name: Build
         env:
           CC: ${{ matrix.cc }}
-        run: ${{ github.workspace }}/ci/build.sh
+        run: echo "$(which gcc); ---- ; $(gcc --version)" && ${{ github.workspace }}/ci/build.sh
 
   build-windows:
     name: Build on ${{ matrix.os }} (${{ matrix.config }} config)
