@@ -2,7 +2,7 @@ if ($Env:CONFIG -eq 'MSVC') {
     # Microsoft Visual C Compiler
     $Env:CC = 'cl'
     cmake -B build\
-    cd build\ && nmake /F Makefile
+    (cd build\) -and (nmake /F Makefile)
 
 } elseif ($Env:CONFIG -eq 'MINGW') {
     # MinGW gcc for Windows
