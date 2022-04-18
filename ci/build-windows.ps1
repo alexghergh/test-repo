@@ -3,7 +3,7 @@ if ($Env:CONFIG -eq "MSVC") {
     $Env:CC = cl
     cmake -B build/
 
-} else if ($Env:CONFIG -eq "MINGW") {
+} elseif ($Env:CONFIG -eq "MINGW") {
     # MinGW gcc for Windows
     $Env:CC = gcc
     cmake -B build/
