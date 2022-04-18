@@ -6,5 +6,5 @@ if ($Env:CONFIG -eq 'MSVC') {
 } elseif ($Env:CONFIG -eq 'MINGW') {
     # MinGW gcc for Windows
     $Env:CC = 'gcc.exe'
-    cmake -B build/
+    cmake -G "MinGW Makefiles" -B build/
 }
