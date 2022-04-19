@@ -5,9 +5,8 @@ project(
   VERSION 0.0.1
   LANGUAGES C)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wmismatched-dealloc")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wmismatched-dealloc -Werror")
 
 message("Compiling with ${CMAKE_C_COMPILER}")
-message("Compiling with ${CC}")
 
 add_executable(wiregrid src/main.c)
