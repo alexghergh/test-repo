@@ -48,6 +48,7 @@ jobs:
       - name: Build
         env:
           CC: ${{ matrix.cc }}
+          OS_NAME: ${{ matrix.os }}
         run: ${{ github.workspace }}/ci/build.sh
 
   build-windows:
@@ -78,7 +79,6 @@ jobs:
         with:
           update: true
           install: gcc
-
 
       - name: Build
         env:
