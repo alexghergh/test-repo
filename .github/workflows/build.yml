@@ -90,5 +90,6 @@ jobs:
                    ---s--- $(dir D:\msys64\mingw64\bin)\ ---- $(dir D:\msys64\usr\bin)\
                    ---------yeap\
                    --------------------------\
-                   --------- $(D:\msys64\usr\bin\x86_64-pc-msys-gcc.exe --version)"
+                   --------- $(D:\msys64\usr\bin\x86_64-pc-msys-gcc.exe --version) \
+                   ------------  $(D:\msys64\usr\bin\gcc.exe --version)"
                    && powershell ${{ github.workspace }}\ci\build-windows.ps1
