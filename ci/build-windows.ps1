@@ -14,10 +14,10 @@ if ($Env:CONFIG -eq 'MSVC') {
 
 } elseif ($Env:CONFIG -eq 'MINGW') {
 
-    Write-Output $Env:PATH
+    $Env:PATH = "D:\msys64\usr\bin;$Env:PATH"
 
     # MinGW gcc for Windows
-    $Env:CC = 'D:\msys64\usr\bin\gcc.exe'
+    $Env:CC = 'gcc'
 
     # see https://www.msys2.org/docs/cmake/ for generators
     cmake -G "MinGW Makefiles" -B build\ ; exitIfFailed
