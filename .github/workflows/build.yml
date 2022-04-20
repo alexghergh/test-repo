@@ -78,10 +78,9 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           update: true
-          install: gcc
           location: D:\
 
       - name: Build
         env:
           CONFIG: ${{ matrix.config }}
-        run: echo "$(dir D:\msys64\usr\\bin\)" && powershell ${{ github.workspace }}\ci\build-windows.ps1
+        run: echo "$(D:\msys64\usr\\bin\gcc.exe --version)" && powershell ${{ github.workspace }}\ci\build-windows.ps1
