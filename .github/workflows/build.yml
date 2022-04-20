@@ -77,7 +77,6 @@ jobs:
         if: matrix.config == 'MINGW'
         uses: msys2/setup-msys2@v2
         with:
-          path-type: strict
           update: true
           install: gcc
           location: D:\
