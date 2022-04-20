@@ -83,4 +83,4 @@ jobs:
       - name: Build
         env:
           CONFIG: ${{ matrix.config }}
-        run: echo "$(dir C:\msys2\usr\\bin\)" && powershell ${{ github.workspace }}\ci\build-windows.ps1
+        run: echo "$(dir C:\msys64\usr\\bin\)" && powershell ${{ github.workspace }}\ci\build-windows.ps1
