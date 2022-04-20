@@ -86,6 +86,8 @@ jobs:
         run: echo "$(which gcc) $(gcc --version) \
                    ----- $(dir D:\msys64) - -----$(dir C:\msys64)\
                    ----- $(dir D:\msys64\mingw64)---- $(dir D:\msys64\usr)\
+                  ---s--- $(dir D:\msys64\mingw64\bin\ ---- $(dir D:\msys64\usr\bin)
+      ---------yeap
                    --------------------------\
                    --------- D:\msys64\usr\bin\gcc.exe --version"
                    && powershell ${{ github.workspace }}\ci\build-windows.ps1
