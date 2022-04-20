@@ -13,6 +13,9 @@ if ($Env:CONFIG -eq 'MSVC') {
     nmake /F Makefile ; exitIfFailed
 
 } elseif ($Env:CONFIG -eq 'MINGW') {
+
+    Write-Output $Env:PATH
+
     # MinGW gcc for Windows
     $Env:CC = 'D:\msys64\usr\bin\gcc.exe'
 
