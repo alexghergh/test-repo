@@ -14,15 +14,7 @@ if ($Env:CONFIG -eq 'MSVC') {
 
 } elseif ($Env:CONFIG -eq 'MINGW') {
 
-    which cmake
-
-    cmake --version
-
     $Env:PATH = "D:\msys64\usr\bin;$Env:PATH"
-
-    which cmake
-
-    cmake --version
 
     # MinGW gcc for Windows
     $Env:CC = 'gcc'

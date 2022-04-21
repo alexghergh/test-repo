@@ -39,20 +39,13 @@ jobs:
           brew update --quiet
           brew install gcc
 
-      # - env:
-      #     CC: ${{ matrix.cc }}
-      #   run: |
-      #     echo "os: $RUNNER_OS -- compiler: $CC"
-      #     echo "compiler version: $($CC --version)"
-      #     echo "cmake version: $(cmake --version)"
       - name: Build
         env:
           CC: ${{ matrix.cc }}
-          OS_NAME: ${{ matrix.os }}
         run: ${{ github.workspace }}/ci/build.sh
 
   build-windows:
-    name: Build on ${{ matrix.os }} (${{ matrix.config }} config)
+    name: Build on ${{ matrix.os }} 64-bit (${{ matrix.config }} config)
     strategy:
       fail-fast: false
       matrix:
@@ -79,22 +72,10 @@ jobs:
         with:
           update: true
           install: gcc
+          # make sure to keep the location in sync with ci/build-windows.ps1
           location: D:\
 
       - name: Build
         env:
           CONFIG: ${{ matrix.config }}
         run: powershell ${{ github.workspace }}\ci\build-windows.ps1
-        # run: echo "D:\msys64\usr\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
-        #   && powershell ${{ github.workspace }}\ci\build-windows.ps1
-
-          # echo 'D:\msys64\mingw64\bin' >> $GITHUB_PATH && echo "$(which gcc) $(gcc --version) \
-          #          ----- $(dir D:\msys64) - -----$(dir C:\msys64)\
-          #          ----- $(dir D:\msys64\mingw64)---- $(dir D:\msys64\usr)\
-          #          ---s--- $(dir D:\msys64\mingw64\bin)\ ---- $(dir D:\msys64\usr\bin)\
-          #          ---------yeap\
-          #          --------------------------\
-          #          --------- $(D:\msys64\usr\bin\x86_64-pc-msys-gcc.exe --version) \
-          #          ------------  $(D:\msys64\usr\bin\gcc.exe --version) \
-          #          ----------------- $(which make)"
-          #          && powershell ${{ github.workspace }}\ci\build-windows.ps1
