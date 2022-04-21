@@ -91,5 +91,6 @@ jobs:
                    ---------yeap\
                    --------------------------\
                    --------- $(D:\msys64\usr\bin\x86_64-pc-msys-gcc.exe --version) \
-                   ------------  $(D:\msys64\usr\bin\gcc.exe --version)"
+                   ------------  $(D:\msys64\usr\bin\gcc.exe --version) \
+                   ----------------- $(which make)"
                    && powershell ${{ github.workspace }}\ci\build-windows.ps1
