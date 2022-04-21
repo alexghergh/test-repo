@@ -18,7 +18,7 @@ if ($Env:CONFIG -eq 'MSVC') {
 
     cmake --version
 
-    # $Env:PATH = "D:\msys64\usr\bin;$Env:PATH"
+    $Env:PATH = "D:\msys64\usr\bin;$Env:PATH"
 
     which cmake
 
