@@ -85,7 +85,7 @@ jobs:
         env:
           CONFIG: ${{ matrix.config }}
         # run: powershell ${{ github.workspace }}\ci\build-windows.ps1
-        run: echo "D:\msys64\usr\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        run: echo "D:\msys64\usr\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Prepend
           && powershell ${{ github.workspace }}\ci\build-windows.ps1
 
           # echo 'D:\msys64\mingw64\bin' >> $GITHUB_PATH && echo "$(which gcc) $(gcc --version) \
