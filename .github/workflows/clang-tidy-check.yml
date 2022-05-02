@@ -1,0 +1,19 @@
+# TODO run after ubuntu-latest build
+
+name: clang-tidy check
+
+on:
+  workflow_run:
+    workflows: [ 'Build' ]
+    branches: [ 'main' ]
+    types:
+      - completed
+
+jobs:
+  clang-tidy-check:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: actions/checkout@v3
+      #
+      - run: ls build/
