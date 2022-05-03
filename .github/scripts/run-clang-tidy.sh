@@ -6,7 +6,7 @@ BUILD_DIR=build/
 __clang_tidy() {
     local filepath="$1"
 
-    output="$(clang-tidy --export-fixes=clang-tidy.txt --checks='*' -p "$BUILD_DIR" "$filepath" 2>&1)"
+    output="$(clang-tidy --export-fixes=clang-tidy.txt --checks="*" -p "$BUILD_DIR" "$filepath" 2>&1)"
 
     local format_status="$?"
     if [[ "${format_status}" -ne 0 ]]; then
