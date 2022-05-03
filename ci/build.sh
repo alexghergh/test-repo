@@ -7,7 +7,7 @@ build_wiregrid() {
     fi
 
     echo 'Running cmake..'
-    cmake -B build/ .
+    cmake -B build/ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
 
     echo 'Running make..'
     make -C build/

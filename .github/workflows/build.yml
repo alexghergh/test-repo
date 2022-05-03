@@ -44,6 +44,12 @@ jobs:
           CC: ${{ matrix.cc }}
         run: ${{ github.workspace }}/ci/build.sh
 
+      - name: Create cmake build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
+          path: build/
+
   build-windows:
     name: Build on ${{ matrix.os }} 64-bit (${{ matrix.config }} config)
     strategy:
@@ -79,3 +85,9 @@ jobs:
         env:
           CONFIG: ${{ matrix.config }}
         run: powershell ${{ github.workspace }}\ci\build-windows.ps1
+
+      - name: Create cmake build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.os }}-${{ matrix.config }}-cmake-build
+          path: build\

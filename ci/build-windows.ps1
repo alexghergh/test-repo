@@ -20,7 +20,7 @@ if ($Env:CONFIG -eq 'MSVC') {
     $Env:CC = 'gcc'
 
     # see https://www.msys2.org/docs/cmake/ for generators
-    cmake -G "MinGW Makefiles" -B build\ ; exitIfFailed
+    cmake -G "MinGW Makefiles" -B build\ -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ; exitIfFailed
 
     make -C build\ ; exitIfFailed
 }

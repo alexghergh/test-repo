@@ -1,4 +1,5 @@
 # TODO run after ubuntu-latest build
+# use artifacts to pass the build/ dir between the workflows
 
 name: clang-tidy check
 
@@ -14,6 +15,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/checkout@v3
-      #
-      - run: ls build/
+      - name: Download cmake build artifact
+        uses: actions/download-artifact@v2
+
+      - name: Run clang-tidy
