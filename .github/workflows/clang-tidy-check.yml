@@ -25,10 +25,11 @@ jobs:
         run: ls -R
 
       - name: Download cmake build artifact
-        uses: actions/download-artifact@v3
+        uses: dawidd6/action-download-artifact@v2
         with:
-          # name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
-          name: my-artifact
+          # keep in sync with the build workflow filename
+          workflow: build.yml
+          name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
 
       - name: Display after
         run: ls -R
