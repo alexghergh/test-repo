@@ -12,11 +12,11 @@ on:
 jobs:
   clang-tidy-check:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    # strategy:
-      # fail-fast: false
-      # matrix:
-      #   os: [ ubuntu-latest, macos-latest ]
-      #   cc: [ gcc, clang ]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+        cc: [ gcc, clang ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,7 +30,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           # keep in sync with the build workflow filename
-          workflow: clang-tidy-check.yml
+          workflow: build.yml
           name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
 
       - name: Display after
