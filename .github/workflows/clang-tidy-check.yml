@@ -25,10 +25,12 @@ jobs:
         run: ls -R
 
       - name: Download cmake build artifact
+        # since the default github action for artifacts doesn't allow
+        # cross-workflow artifact downloads, we need to use this workflow
         uses: dawidd6/action-download-artifact@v2
         with:
           # keep in sync with the build workflow filename
-          workflow: build.yml
+          workflow: clang-tidy-check.yml
           name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
 
       - name: Display after
