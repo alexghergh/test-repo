@@ -38,6 +38,9 @@ jobs:
       - name: Display after
         run: ls -R
 
+      - name: Display clang-tidy
+        run: ls /usr/bin/
+
       # TODO check that clang-tidy is installed
       # run clang-tidy for multiple OS'es (?)
       # check that this workflow runs ONLY IF BUILD SUCCEEDED
