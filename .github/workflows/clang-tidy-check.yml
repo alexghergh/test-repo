@@ -15,14 +15,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ ubuntu-latest ]
         cc: [ gcc, clang ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Display before
-        run: ls -R
+      - name: Install clang-tidy
+        run: apt-get install -y clang-tidy
 
       - name: Download cmake build artifact
         # since the default github action for artifacts doesn't allow
@@ -32,6 +32,8 @@ jobs:
           # keep in sync with the build workflow filename
           workflow: build.yml
           name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
+          # extract to build/
+          path: ${{ github.workspace }}/build/
 
       - name: Display after
         run: ls -R
