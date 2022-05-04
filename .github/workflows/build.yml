@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
-          path: build/
+          path: ${{ github.workspace }}/build/
 
   build-windows:
     name: Build on ${{ matrix.os }} 64-bit (${{ matrix.config }} config)

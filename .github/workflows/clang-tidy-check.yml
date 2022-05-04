@@ -6,7 +6,6 @@ name: clang-tidy check
 on:
   workflow_run:
     workflows: [ 'Build' ]
-    branches: [ 'main' ]
     types:
       - completed
 
