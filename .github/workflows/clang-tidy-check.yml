@@ -12,22 +12,29 @@ on:
 jobs:
   clang-tidy-check:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest, macos-latest ]
-        cc: [ gcc, clang ]
+    # strategy:
+      # fail-fast: false
+      # matrix:
+      #   os: [ ubuntu-latest, macos-latest ]
+      #   cc: [ gcc, clang ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
+      - name: Display before
+        run: ls -R
+
       - name: Download cmake build artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
-          name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
+          # name: ${{ matrix.os }}-${{ matrix.cc }}-cmake-build
+          name: my-artifact
+
+      - name: Display after
+        run: ls -R
 
       # TODO check that clang-tidy is installed
       # run clang-tidy for multiple OS'es (?)
       # check that this workflow runs ONLY IF BUILD SUCCEEDED
       - name: Run clang-tidy
-        run: ${{ github.workspace }}/.github/scripts/run-clang-tidy.sh"
+        run: ${{ github.workspace }}/.github/scripts/run-clang-tidy.sh
