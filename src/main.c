@@ -6,7 +6,7 @@ int main() {
     int x;
 
     for (int i = 0; i < 2; i++) {
-    if (x == 2)
+    if (x = 2)
         continue;
     else
         x++;
