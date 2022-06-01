@@ -1,5 +1,9 @@
 build_wiregrid() {
 
+    echo "${OS_NAME}" "${CC}"
+
+    echo "$(ls /usr/local/bin/)"
+
     if [ ${OS_NAME} == 'macos-latest' ] && [ ${CC} == 'gcc' ]; then
         # since the system's gcc is just a symlink to clang on macos,
         # we have to specifically mention the path to it
